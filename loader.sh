@@ -1,5 +1,5 @@
 #!/bin/bash
-
+## Made by Vextion01
 
 res=''
 inputFile=''
@@ -42,9 +42,23 @@ checkRes(){
   resList=$(grep -oE 'FBQualityLabel=\\"[0-9]{3,4}p\\"' <<< "$tempText" | grep -oE '[0-9]+p' || echo "This video might be in SD quality.")
 }
 
-helpFunc(){
-  echo "hello"
-  exit 0
+show_help() {
+echo "
+Usage: $0 [OPTIONS]
+
+A script to download and process videos with customizable settings.
+
+Options:
+Option Long Option Description                                                  
+-c, --check            Check the resolution of the video.                           
+-d, --datasaver        Download the video at the lowest quality.                   
+-f, --file FILE        Specifies the input file to use.                             
+-h, --help             Display help information.                                    
+-m, --maximum          Download the video in the highest quality.                   
+-r, --resolution RES   Sets the resolution (e.g., 1080p, 720p).             
+-v, --volume VOL       Adjust the video volume (e.g., 3.0). The default is 2.0. 
+"
+exit 0
 }
 
 while true; do
@@ -58,7 +72,7 @@ while true; do
       shift
       ;;
     -h | --help ) 
-      helpFunc
+      show_help
       shift
       ;;
     -f | --file)
