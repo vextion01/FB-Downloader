@@ -43,11 +43,11 @@ You can run it directly from the terminal like this 🥳🥳:
 | -------- | ---------------------- | ---------------------------------------------- |
 | `-c`     | `--check`              | Check the resolution of the video.             |
 | `-d`     | `--datasaver`          | Download the video at the lowest quality.      |
-| `-f`     | `--file` `<Filename>`  | Specifies the input file to use.               |
+| `-f` FILE| `--file` FILE          | Specifies the input file to use.               |
 | `-h`     | `--help`               | Display help information.                      |
 | `-m`     | `--maximum`            | Download the video in the highest quality.     |
-| `-r`     | `--resolution` `<360p>`| Sets the resolution (e.g., `1080p`, `720p`).   |
-| `-v`     | `--volume` `<2.0>`     | Adjust the volume of the video.                |
+| `-r` RES | `--resolution` RES     | Sets the resolution (e.g., `1080p`, `720p`).   |
+| `-v` VOL | `--volume` VOL         | Adjust the video volume (e.g., `3.0`). The default is 2.0. |
 
 
 ---
