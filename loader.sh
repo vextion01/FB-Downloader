@@ -91,7 +91,8 @@ if [[ ! -f "$inputFile" ]]; then
 fi
 tempText=$(grep -m 1 "$fixCode" "$inputFile")
 
-raw=$(sed -n 's/.*"text":"\([^"]*\)".*/\1/p' "${inputFile}" | sed -n '2p')
+
+raw=$(sed -n 's/.*\("color_ranges":\[\],"text":"[^"]*"\).*/\1/p' "${inputFile}" | sed -n '2p' | sed 's/.*"text":"\([^"]*\)".*/\1/')
 nameOutput=$(printf "%b" "$raw")
 
 if $checkFlag; then
@@ -106,8 +107,7 @@ if $dataFlag; then
     read -r urlVideo
     read -r urlAudio
   } < <(sed -n '1p;$p' <<< "$tempText")
-  echo "Video: $urlVideo"
-  echo "Audio: $urlAudio"
+  downloadFile
   exit 0
 elif $maxFlag; then
   findUrl
@@ -115,8 +115,7 @@ elif $maxFlag; then
     read -r urlVideo
     read -r urlAudio
   } < <(tail -n 2 <<< "$tempText")
-  echo "Video: $urlVideo"
-  echo "Audio: $urlAudio"
+  downloadFile
   exit 0
 fi
 
